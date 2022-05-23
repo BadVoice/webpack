@@ -1,71 +1,41 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const webpack = require('webpack')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { type } = require('os');
+let mode = 'development'
+if (process.env.NODE__ENV === 'production') {
+    mode = 'development'
+}
+console.log(mode + 'mode')
 
 module.exports = {
     entry: {
         main: path.resolve(__dirname, './src/index.js'),
     },
     output: {
-        path: path.resolve(__dirname, './dist'),
-        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
     },
-    mode: 'development',
-    devServer: {
-        historyApiFallback: true,
-        contentBase: path.resolve(__dirname, './dist'),
-        open: true,
-        compress: true,
-        hot: true,
-        port: 8080,
+    module: {
+        rules: [{
+                test: /\.[tj]s$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+                type: 'asset/reosurce',
+            }
+        ]
     },
-    plugins: [
-        // ...
-        // применять изменения только при горячей перезагрузке
-        new webpack.HotModuleReplacementPlugin(),
-    ],
+    resolve: {
+        extension: ['.ts', '.js']
+    },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'webpack Boilerplate',
-            template: path.resolve(__dirname, './src/template.html'),
-            filname: 'index.html',
+            template: './src/index.html'
         }),
-        new CleanWebpackPlugin(),
     ],
-    plugins: {
-        'postcss-preset-env': {
-            browsers: 'last 2 versions',
-        }
-    },
-
-    module: {
-        rules: [
-            // JavaScript
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: ['babel-loader'],
-            }, {
-                test: /\.ts$/,
-                exclude: /node_modules/,
-                use: ['ts-loader'],
-
-            }, // изображения
-            {
-                test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: 'asset/resource',
-            }, // шрифты и SVG
-            {
-                test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
-                type: 'asset/inline',
-            }, {
-                test: /\.(scss|css)$/,
-                use: ['MiniCssExtractPlugin', 'css-loader', 'postcss-loader', 'sass-loader'],
-            },
-
-
-
-        ],
-    }
 }
