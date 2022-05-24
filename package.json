@@ -1,10 +1,9 @@
 {
     "name": "startup",
     "version": "1.0.0",
-    "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "cross-env NODE_ENV=production&&webpack",
+        "build": "webpack",
         "start": "set NODE_ENV=development&&webpack serve",
         "dev": "set NODE_ENV=development&&webpack"
     },
@@ -16,6 +15,7 @@
         "@babel/plugin-proposal-class-properties": "^7.17.12",
         "@babel/preset-env": "^7.18.0",
         "babel-loader": "^8.2.5",
+        "copy-webpack-plugin": "^11.0.0",
         "cross-env": "^7.0.3",
         "css-loader": "^6.7.1",
         "html-webpack-plugin": "^5.5.0",
@@ -35,5 +35,14 @@
     },
     "dependencies": {
         "g": "^2.0.1"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/BadVoice/StartUp.git"
+    },
+    "bugs": {
+        "url": "https://github.com/BadVoice/StartUp/issues"
+    },
+    "homepage": "https://github.com/BadVoice/StartUp#readme",
+    "description": ""
 }
