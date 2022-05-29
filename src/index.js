@@ -1,8 +1,8 @@
 import './modules/common.js'
-import './scss/main.scss'
+import './scss/all.scss'
 import example from './images/example.png'
 import example from './images/example.svg'
-import './styles.css'
+import './css/main.css'
 
 const userStack = {
     langueage: 'JavaScript',
