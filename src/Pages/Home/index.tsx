@@ -1,4 +1,5 @@
 import React from 'react'
+import './css/app.css'
 
 export function Home() {
     require('./index.styl')

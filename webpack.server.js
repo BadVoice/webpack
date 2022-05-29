@@ -18,7 +18,7 @@ module.exports = (env, argv) => {
     return {
         plugins: [
             new CleanWebpackPlugin(),
-            new MiniCssExtractPlugin(),
+            new MiniCssExtractPlugin(), // Подключаем плагин для CSS
         ],
         resolve: config.resolve,
         module: {
@@ -28,17 +28,17 @@ module.exports = (env, argv) => {
             ],
         },
         entry: {
-            main: './src/Server.tsx',
+            main: './src/Server.tsx', // Тут уже энтрипоинт сервера, который сделаем далее
         },
         output: {
             filename: '[name].js',
-            path: path.resolve(__dirname, 'server'),
+            path: path.resolve(__dirname, 'server'), // Все компилируем в папку server
         },
         performance: {
             hints: false,
         },
         optimization: optimizations,
-        target: 'node',
-        externals: [nodeExternals()],
+        target: 'node', // обязательно указываем режим сборки для node js, а не браузера
+        externals: [nodeExternals()], // исключаем node_modules
     }
 }

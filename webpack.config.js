@@ -9,6 +9,12 @@ module.exports = (env) => {
             use: [{
                 loader: "ts-loader",
             }, ],
+
+            test: /\.css$/,
+            use: [
+                'style-loader',
+                'css-loader'
+            ]
         },
         stylus: {
             test: /\.styl$/,
