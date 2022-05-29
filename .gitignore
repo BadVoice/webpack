@@ -1,2 +1,20 @@
+# dependencies
 /node_modules
-package-lock.json
+
+# System Files
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini
+
+# Links
+*.lnk
+.idea/
+*.PEM
+.vscode/
+
+# Logs
+npm-debug.log
+
+# Block build and server
+/dist
+/server

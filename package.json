@@ -1,48 +1,48 @@
 {
-    "name": "startup",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-        "build": "set NODE_ENV=production&&webpack",
-        "start": "set NODE_ENV=development&&webpack serve",
-        "dev": "set NODE_ENV=development&&webpack"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "@babel/core": "^7.18.0",
-        "@babel/plugin-proposal-class-properties": "^7.17.12",
-        "@babel/preset-env": "^7.18.0",
-        "babel-loader": "^8.2.5",
-        "copy-webpack-plugin": "^11.0.0",
-        "cross-env": "^7.0.3",
-        "css-loader": "^6.7.1",
-        "html-webpack-plugin": "^5.5.0",
-        "mini-css-extract-plugin": "^2.6.0",
-        "node-sass": "^7.0.1",
-        "postcss": "^8.4.14",
-        "postcss-loader": "^7.0.0",
-        "postcss-preset-env": "^7.6.0",
-        "sass": "^1.52.1",
-        "sass-loader": "^13.0.0",
-        "style-loader": "^3.3.1",
-        "ts-loader": "^9.3.0",
-        "typescript": "^4.6.4",
-        "webpack": "^5.72.1",
-        "webpack-cli": "^4.9.2",
-        "webpack-dev-server": "^4.9.0"
-    },
-    "dependencies": {
-        "g": "^2.0.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/BadVoice/StartUp.git"
-    },
-    "bugs": {
-        "url": "https://github.com/BadVoice/StartUp/issues"
-    },
-    "homepage": "https://github.com/BadVoice/StartUp#readme",
-    "description": ""
+  "name": "react_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "webpack-dev-server --config webpack.client.js --mode development",
+    "build": "webpack --config webpack.client.js --mode production",
+    "dev": "webpack --config webpack.client.js --mode development",
+    "start": "webpack --config webpack.server.js --mode production && node ./server/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "autoprefixer": "9.8.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.3.0",
+    "express": "^4.18.1",
+    "html-webpack-plugin": "^4.4.1",
+    "mini-css-extract-plugin": "^0.11.3",
+    "postcss-csso": "^4.0.0",
+    "postcss-loader": "^4.0.2",
+    "style-loader": "^1.2.1",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^3.0.2",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.2",
+    "webpack-notifier": "^1.8.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ]
 }
