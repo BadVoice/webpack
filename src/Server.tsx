@@ -6,7 +6,7 @@ import { StaticRouter } from 'react-router'
 import { App } from 'App'
 import { Html } from './Html/Server'
 
-const port = 3000
+const port = 300
 const server = express()
 const jsFiles: Array<string> = []
 
